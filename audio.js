@@ -10,7 +10,7 @@ function Player(params) {
     this._resourceCountProcessed = 0;
     this.isLoaded = false;
     this.onLoad = undefined;
-    this.fileDirectory = params.fileDirectory || 'audio';
+    this.fileDirectory = Lib.path(params.fileDirectory || 'audio');
     this.fileExtension = params.fileExtension || 'ogg';
     
     this.state = { track: this.trackList[0], volume: 1 };

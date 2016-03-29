@@ -39,7 +39,7 @@
           font-weight: 300;
           src: local('Open Sans Cond Light'),
                local('OpenSans-CondensedLight'),
-               url(/fonts/Open-Sans-Condensed-normal-300.woff) format('woff');
+               url(/erochan/fonts/Open-Sans-Condensed-normal-300.woff) format('woff');
         }
         @font-face {
           font-family: 'Open Sans Condensed';
@@ -47,7 +47,7 @@
           font-weight: 700;
           src: local('Open Sans Condensed Bold'),
                local('OpenSans-CondensedBold'),
-               url(/fonts/Open-Sans-Condensed-normal-700.woff) format('woff');
+               url(/erochan/fonts/Open-Sans-Condensed-normal-700.woff) format('woff');
         }
         @font-face {
           font-family: 'Open Sans Condensed';
@@ -55,7 +55,7 @@
           font-weight: 300;
           src: local('Open Sans Cond Light Italic'),
                local('OpenSans-CondensedLightItalic'),
-               url(/fonts/Open-Sans-Condensed-italic-300.woff) format('woff');
+               url(/erochan/fonts/Open-Sans-Condensed-italic-300.woff) format('woff');
         }
     </style>
     <script type="text/javascript" src="paper-full.min.js"></script>
@@ -75,12 +75,13 @@
     <div id='main'>
         <canvas id='viewbox' resize='true'></canvas>
     </div>
-    <script type='text/javascript' src='/lib.js'></script>
-    <script type='text/javascript' src='/ui.js'></script>
-    <script type='text/javascript' src='/audio.js'></script>
-    <script type='text/javascript' src='/api.js'></script>
-    <script type='text/javascript' src='/game.js'></script>
-    <script type='text/javascript' src='/engine.js'></script>
+    <script type='text/javascript'>var ROOT_URL_PATH = '/erochan';</script>
+    <script type='text/javascript' src='/erochan/lib.js'></script>
+    <script type='text/javascript' src='/erochan/ui.js'></script>
+    <script type='text/javascript' src='/erochan/audio.js'></script>
+    <script type='text/javascript' src='/erochan/api.js'></script>
+    <script type='text/javascript' src='/erochan/game.js'></script>
+    <script type='text/javascript' src='/erochan/engine.js'></script>
     <script type='text/javascript'>engineInit('main');</script>
 </body>
 </html>

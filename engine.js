@@ -1,4 +1,4 @@
-var D = true; // debug
+var D = false; // debug
 var engine = {};
 
 function getParameters() {

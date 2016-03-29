@@ -6,6 +6,11 @@ function Lib() {
 
 Lib.debug = true;
 
+Lib.path = function(p) {
+    var prefix = typeof ROOT_URL_PATH == 'undefined' ? undefined : ROOT_URL_PATH;
+    return IS_LOCALHOST ? p : [prefix,p].join('/');
+};
+
 Lib.listClone = function(list) {
     return list.slice(0);
 };

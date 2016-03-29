@@ -8,7 +8,7 @@ function initGame2() {
 function initGame() {
     
     m = new Music({
-        trackList: ['my-soul','camp_center_day'],
+        trackList: ['camp_center_day'],
         fileExtension: 'mp4'
     });
     
