@@ -121,7 +121,7 @@ function Scene(params) {
     
     params.mainList = this.nameCombinator(this.locationList,this.nameCombinator(this.sectionList, this.timeList));
     params.addonList = Lib.listClone(params.matterList || []);
-    params.fileDirectory = Lib.path(params.fileDirectory);
+    params.fileDirectory = params.fileDirectory;
     params.fileExtension = params.fileExtension || 'jpg';
     params.fileAddonExtension = params.fileAddonExtension || 'png';
     
@@ -252,7 +252,7 @@ function Sprite(params) {
     // prototype
     params.mainList = Lib.listClone(this.bodyList);
     params.addonList = [].concat(this.faceList,this.wearList,this.thingList);
-    params.fileDirectory = Lib.path(params.fileDirectory || 'sprites'); // TODO:
+    params.fileDirectory = params.fileDirectory || 'sprites'; // TODO:
     // params.fileExtension = params.fileExtension || 'png';
     // params.fileAddonExtension = params.fileAddonExtension || 'png';
     
