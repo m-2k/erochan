@@ -60,19 +60,19 @@ Lib.loadResource = function(url, callbackComplete, callbackFailed, responseType)
     xhr.send();
 };
 
-Lib.audioLoad = function(url, audioCtx, callback) {
-    Lib.loadResource(url, function(e) {
-        audioCtx.decodeAudioData(e.target.response, function(decodedArrayBuffer) {
-            callback(decodedArrayBuffer);
-        }, function(e) {
-            Lib.debug && console.log('Error decoding file', e);
-            callback(false);
-        });
-    }, function(e) {
-        Lib.debug && console.log('Error loading file', e);
-        callback(null);
-    });
-};
+// Lib.audioLoad = function(url, audioCtx, callback) {
+//     Lib.loadResource(url, function(e) {
+//         audioCtx.decodeAudioData(e.target.response, function(decodedArrayBuffer) {
+//             callback(decodedArrayBuffer);
+//         }, function(e) {
+//             Lib.debug && console.log('Error decoding file', e);
+//             callback(false);
+//         });
+//     }, function(e) {
+//         Lib.debug && console.log('Error loading file', e);
+//         callback(null);
+//     });
+// };
 
 Lib.audioPlay = function(source, decodedArrayBuffer) {
     source.buffer = decodedArrayBuffer;

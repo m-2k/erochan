@@ -1,15 +1,15 @@
-function initGame2() {
-    m = new Music({
-        trackList: ['my-soul','camp_center_day'],
-        fileExtension: 'mp4'
-    });
-};
+// function initGame2() {
+//     m = new Music({
+//         trackList: ['my-soul','camp_center_day'],
+//         fileExtension: 'mp4'
+//     });
+// };
 
 function initGame() {
     
     m = new Music({
         trackList: ['camp_center_day'],
-        fileExtension: 'mp4'
+        fileExtension: 'mp3'
     });
     
     bg = new Scene({name:'bg1',

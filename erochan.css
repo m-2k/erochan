@@ -1,0 +1,73 @@
+html, body {
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: 'Open Sans Condensed';
+} 
+#main {
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+}
+#window {
+    width: 100%;
+    height: calc( 100% - 4rem );
+}
+#viewbox {
+    width: 100%;
+    height: 100%;
+}
+#bunner {
+    height: 4rem;
+    display: flex;
+    background-color: #f76923;
+    border-top: 1px solid #ab5218;
+}
+#bunner div {
+    flex-grow: 1;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+#bunner, #bunner a { color: #fff; }
+#popup {
+    position: fixed;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    color: #fff;
+    display: none;
+}
+#popup.enabled {
+    display: flex;
+}
+#popup div { margin: auto; }
+#controls{
+    display:none;
+}
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Cond Light'),
+       local('OpenSans-CondensedLight'),
+       url(/fonts/Open-Sans-Condensed-normal-300.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed Bold'),
+       local('OpenSans-CondensedBold'),
+       url(/fonts/Open-Sans-Condensed-normal-700.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Open Sans Cond Light Italic'),
+       local('OpenSans-CondensedLightItalic'),
+       url(/fonts/Open-Sans-Condensed-italic-300.woff) format('woff');
+}

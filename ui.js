@@ -1,3 +1,18 @@
+// function MultiResource(params) {
+//     params = params || {};
+//     this.name = params.name; // for path creation
+//     this.resourceList = {}; // KV flat access
+//
+//     this._resourceCountTotal = 0;
+//     this._resourceCountProcessed = 0;
+//     this.isLoaded = false;
+//     this.onLoad = undefined;
+//     this.fileDirectory = Lib.path(params.fileDirectory);
+//     this.fileExtension = params.fileExtension;
+// };
+
+function transparentColor() { return new Color(1, 1, 1, 0.01); } // hack for hover events
+
 function MultiImage(params) {
     params = params || {};
     this.name = params.name; // for path creation
@@ -440,11 +455,13 @@ ActionSelector.prototype.render = function() {
     for(var a = 0; a < count; a++) {
         
         var t = ActionSelector.renderText(this.actions[a].text);
+        // t.strokeColor = '#f30';
+        // t.strokeWidth = 4;
         
         var p = new Path.Rectangle(0,height*a,b.width*0.5,height);
-        p.fillColor = new Color(1, 1, 1, 0.0); // hack for hover events
+        p.fillColor = transparentColor(); // hack for hover events
         // p.strokeColor = '#444';
-        // p.strokeWidth = 0;
+        // p.strokeWidth = 10;
         p.pointText = t;
         p.actionCallback = this.actions[a].next;
         
@@ -466,7 +483,7 @@ ActionSelector.prototype.render = function() {
         p.onMouseLeave = function(event) {
             this.timeoutMouseEnter && clearTimeout(this.timeoutMouseEnter);
             this.isMouseEnter = false;
-            this.fillColor = new Color(1, 1, 1, 0.0);
+            this.fillColor = transparentColor(); // hack for hover events
             this.timeoutMouseEnter = setTimeout(lambdaShowText.bind(this), 10);
         }
         p.onClick = function(event) {
@@ -502,7 +519,6 @@ ActionSelector.prototype.positioning = function() {
         var t = this.actions[a].areaText;
         t.fitBounds(nt);
         t.defaultScaling = t.scaling;
-        // this.actions[a].areaScene.bringToFront();
     }
 };
 ActionSelector.renderText = function(text) {

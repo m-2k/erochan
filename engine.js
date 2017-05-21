@@ -1,4 +1,4 @@
-var D = false; // debug
+var D = true; // debug
 var engine = {};
 
 function getParameters() {
@@ -50,7 +50,7 @@ function engineInit(container_id) {
     
     var requestResize = function() {
         if(engine.timeoutResize) { clearTimeout(engine.timeoutResize); };
-        setTimeout(engineWindowResize, 30);
+        engine.timeoutResize = setTimeout(engineWindowResize, 30);
     };
     window.addEventListener('resize', requestResize, false);
     document.addEventListener("fullscreenchange", requestResize, false);
@@ -91,7 +91,7 @@ function exitFullscreen() {
 function engineDomOnload() {
     
 	var canvas = engine.viewbox;
-    paper.setup('viewbox');
+    paper.setup(canvas);
     view.onFrame = Ui.onFrame;
     
     if(typeof initGame == 'function') {
@@ -110,15 +110,21 @@ function engineDomOnload() {
 };
 function resourceLoaded(res) {
     var allIsLoaded = true;    
-    for(var c of [engine.backgrounds,engine.sprites]) {
+    for(var c of [engine.backgrounds, engine.sprites, engine.audioPlayers]) {
         if(!allIsLoaded) break;
-        for (var k in c) { if(c[k] instanceof MultiImage && !c[k].isLoaded) { allIsLoaded = false; break; } };
+        for (var k in c) {
+            if(c[k] instanceof MultiImage && !c[k].isLoaded) { allIsLoaded = false; break; }
+            else if(c[k] instanceof Player && !c[k].isLoaded) { allIsLoaded = false; break; }
+        };
     };
     
     if(allIsLoaded && typeof startGame == 'function') { initEnd(); };
 };
 
 function initEnd() {
+    
+    document.getElementById('popup').classList.remove('enabled');
+    
     engineDraw();
     engine.action.fun = startGame();
     
@@ -195,7 +201,7 @@ function engineDraw() {
     
     var l1 = bgGroup;
     var l2 = new Layer([spGroup, engine.textView._renderingElements, selGroup]);
-    project.addChild(l2);
+    project.addLayer ? project.addLayer(l2) : project.addChild(l2); // paperjs v0.10 : v0.9
     
     // new ActionSelector({actions: [{text:"sas-we-ewf-e-fr-g-tr-grtg-sr-tg-rsfdsjgnrkblsdhbgbfgdfsgs-"},{text: "sus"}]});
 };
